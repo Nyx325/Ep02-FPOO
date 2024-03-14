@@ -46,6 +46,7 @@ public class RepositorioCliente {
             }
         }
         catch(NoSuchFileException ex){
+            System.out.println(ex);
             this.guardar();
         }
         
@@ -56,8 +57,9 @@ public class RepositorioCliente {
     }
 
     public void guardar() throws IOException {
+        System.out.println("yyyyyy");
         File archivo = new File("Clientes.csv");
-        FileWriter fwriter = new FileWriter(archivo);
+        FileWriter fwriter = new FileWriter(archivo,false);
         PrintWriter pwriter = new PrintWriter(fwriter);
 
         for(Cliente cliente:listaClientes){
@@ -66,9 +68,5 @@ public class RepositorioCliente {
         }
         pwriter.close();
         fwriter.close();
-    }
-
-    public void crearArch(){
-
     }
 }

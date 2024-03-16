@@ -25,13 +25,9 @@ public class RepositorioCliente {
     public RepositorioCliente() throws IOException{
         listaClientes = new ArrayList<>();
 
-        //Abrir archivo
         try{
             File archivo = new File("Clientes.csv");
             List<String> lineasArch = Files.readAllLines(archivo.toPath());
-
-            //quitar cabeceras
-            //lineasArch.remove(0);
 
             for(String registro:lineasArch){
                 String[] registroSplit = registro.split(";");
@@ -57,7 +53,6 @@ public class RepositorioCliente {
     }
 
     public void guardar() throws IOException {
-        System.out.println("yyyyyy");
         File archivo = new File("Clientes.csv");
         FileWriter fwriter = new FileWriter(archivo,false);
         PrintWriter pwriter = new PrintWriter(fwriter);

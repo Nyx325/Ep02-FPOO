@@ -5,8 +5,8 @@
         <group>
             <file>file:/home/rubenor/upemor/Ep02-FPOO/src/persistencia/entidad/Cliente.java</file>
             <file>file:/home/rubenor/upemor/Ep02-FPOO/src/persistencia/entidad/Empleado.java</file>
+            <file>file:/home/rubenor/upemor/Ep02-FPOO/src/persistencia/repositorio/RepositorioEmpleado.java</file>
             <file>file:/home/rubenor/upemor/Ep02-FPOO/src/Main.java</file>
-            <file>file:/home/rubenor/upemor/Ep02-FPOO/Clientes.csv</file>
             <file>file:/home/rubenor/upemor/Ep02-FPOO/src/persistencia/repositorio/RepositorioCliente.java</file>
         </group>
     </open-files>

@@ -3,11 +3,9 @@ package persistencia.repositorio;
 import persistencia.entidad.Cliente;
 import java.util.List;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.io.File;
-import java.io.FileWriter;
 import java.nio.file.NoSuchFileException;
 
 /**
@@ -19,14 +17,13 @@ import java.nio.file.NoSuchFileException;
  * unicamente llamar al método guardar() que tal cual tengamos el repositorio
  * almacenará todo el contenido de la lista en el archivo
  */
-public class RepositorioCliente {
-    private List<Cliente> listaClientes;
-
+public class RepositorioCliente extends Repositorio{
     public RepositorioCliente() throws IOException{
-        listaClientes = new ArrayList<>();
+        lista = new ArrayList<>();
+        pathArchivo = "Clientes.csv";
 
         try{
-            File archivo = new File("Clientes.csv");
+            File archivo = new File(pathArchivo);
             List<String> lineasArch = Files.readAllLines(archivo.toPath());
 
             for(String registro:lineasArch){
@@ -35,33 +32,14 @@ public class RepositorioCliente {
                     registroSplit[0],
                     registroSplit[1],
                     registroSplit[2],
-                    registroSplit[3]
-                );
+                    registroSplit[3]);
 
-                listaClientes.add(cliente);
+                lista.add(cliente);
             }
         }
         catch(NoSuchFileException ex){
             System.out.println(ex);
             this.guardar();
         }
-        
-    }
-    
-    public List<Cliente> getListaClientes(){
-        return listaClientes;
-    }
-
-    public void guardar() throws IOException {
-        File archivo = new File("Clientes.csv");
-        FileWriter fwriter = new FileWriter(archivo,false);
-        PrintWriter pwriter = new PrintWriter(fwriter);
-
-        for(Cliente cliente:listaClientes){
-            String registro = cliente.getNombre()+";"+cliente.getApellidos()+";"+cliente.getTelefono()+";"+cliente.getEmail()+"\n";
-            pwriter.append(registro);
-        }
-        pwriter.close();
-        fwriter.close();
     }
 }

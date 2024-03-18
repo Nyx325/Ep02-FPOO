@@ -1,7 +1,7 @@
 package persistencia.entidad;
 
 /**@author rubenor*/
-public class Cliente {
+public class Cliente implements Almacenable{
     protected String nombre;
     protected String apellidos;
     protected String telefono;
@@ -46,5 +46,7 @@ public class Cliente {
         this.email = email;
     }
     
-    
+    public String toStringCsv(){
+        return nombre+";"+apellidos+";"+telefono+";"+email+"\n";
+    }
 }

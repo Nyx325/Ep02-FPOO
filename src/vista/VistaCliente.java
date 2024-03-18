@@ -2,18 +2,18 @@ package vista;
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
-/* import logica.LogicaCliente */
+import logica.LogicaCliente;
 import entidad.Cliente;
 
 public class VistaCliente {
 
     private Scanner scanner;
-    /* private LogicaCliente logicaCliente; */
+    private LogicaCliente logicaCliente;
 
     public VistaCliente() throws IOException{
         scanner = new Scanner(System.in);
             scanner.useDelimiter("\\n");
-        /* logicaCliente = new LogicaCliente(); */
+            logicaCliente = new LogicaCliente();
     }
 
     public void crearMenuOpciones() {

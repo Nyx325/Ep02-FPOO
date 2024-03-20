@@ -81,4 +81,6 @@ public class RepositorioEmpleado extends Repositorio{
 
         return compatibles;
     }
+
+    
 }

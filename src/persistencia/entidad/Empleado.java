@@ -32,4 +32,19 @@ public class Empleado extends Cliente {
     public String toStringCsv(){
         return nombre+";"+apellidos+";"+telefono+";"+email+";"+departamento+";"+cargo+"\n";
     }
+
+    /** Funcion que determina a nivel de valor si dos objetos
+     * empleado tienen los mismos valores en sus atributos */
+    public boolean equals(Empleado e){
+        if(
+            e.equals(this) &&
+            e.departamento.equals(this.departamento) &&
+            e.cargo.equals(this.cargo)
+        )
+            return true;
+        else
+            return false;
+    }
+
+
 }

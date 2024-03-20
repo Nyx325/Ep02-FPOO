@@ -49,4 +49,18 @@ public class Cliente implements Almacenable{
     public String toStringCsv(){
         return nombre+";"+apellidos+";"+telefono+";"+email+"\n";
     }
+
+    /** Funcion que determina a nivel de valor si dos objetos
+     * cliente tienen los mismos valores en sus atributos */
+    public boolean equals(Cliente c){
+        if(
+            c.nombre.equals(this.nombre) &&
+            c.apellidos.equals(this.apellidos) &&
+            c.telefono.equals(this.telefono) &&
+            c.email.equals(this.email)
+        )
+            return true;
+        else
+            return false;
+    }
 }

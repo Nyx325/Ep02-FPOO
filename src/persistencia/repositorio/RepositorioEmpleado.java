@@ -1,5 +1,6 @@
 package persistencia.repositorio;
 
+import persistencia.entidad.Almacenable;
 import persistencia.entidad.Empleado;
 import java.util.List;
 import java.io.IOException;
@@ -35,5 +36,49 @@ public class RepositorioEmpleado extends Repositorio{
             System.out.println(ex);
             this.guardar();
         }
+    }
+
+    /** Retorna el índice en la lista de empleados en el que se encuentra
+     * el objeto buscado */
+    public long buscar(Empleado e){
+        long i = 0;
+        for(Almacenable empleado:lista){
+            if(e.equals((Empleado)empleado))
+                return i;
+            i++;
+        }
+
+        return -1;
+    }
+
+    public void agregar(Empleado e){
+        for(Almacenable empleado:lista){
+            if(e.equals((Empleado)empleado)){
+                System.out.println("No se pueden ingresar elementos repetidos");
+                return;
+            }
+        }
+
+        lista.add(e);
+    }
+
+    private List<Empleado> buscarCompatibles(Empleado e){
+        List<Empleado> compatibles = new ArrayList<>();
+
+        for(Almacenable empleado:lista){
+            Empleado e2 = (Empleado) empleado;
+            if(
+                e.getNombre().equals(e2.getNombre()) || 
+                e.getApellidos().equals(e2.getApellidos()) ||
+                e.getTelefono().equals(e2.getTelefono()) || 
+                e.getEmail().equals(e2.getEmail()) || 
+                e.getCargo().equals(e2.getCargo()) || 
+                e.getDepartamento().equals(e2.getCargo())
+              ){
+                compatibles.add(e2);
+            }
+        }
+
+        return compatibles;
     }
 }

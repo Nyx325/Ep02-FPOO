@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 import logica.LogicaCliente;
-import entidad.Cliente;
+import persistencia.entidad.Cliente;
 
 public class VistaCliente {
 

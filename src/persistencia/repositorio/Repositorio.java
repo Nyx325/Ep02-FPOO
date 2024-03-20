@@ -31,4 +31,8 @@ public abstract class Repositorio{
     public void add(Almacenable registro){
         lista.add(registro);
     }
+
+    public void remove(long index){
+        lista.remove(index);
+    }
 }

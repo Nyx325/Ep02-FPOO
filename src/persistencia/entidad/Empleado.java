@@ -5,6 +5,8 @@ public class Empleado extends Cliente {
     protected String departamento;
     protected String cargo;
 
+    public Empleado(){}
+
     public Empleado(String nombre, String apellidos, String telefono, String email, String departamento, String cargo) {
         // Llamar al constructor de cliente para instanciar empleado
         super(nombre, apellidos, telefono, email);
@@ -26,6 +28,11 @@ public class Empleado extends Cliente {
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
+    }
+
+    @Override
+    public String toString(){
+        return super.toString()+" "+departamento+" "+cargo;
     }
 
     @Override

@@ -7,6 +7,8 @@ public class Cliente implements Almacenable{
     protected String telefono;
     protected String email;
 
+    public Cliente(){}
+
     public Cliente(String nombre, String apellidos, String telefono, String email) {
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -44,6 +46,10 @@ public class Cliente implements Almacenable{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String toString(){
+        return nombre+" "+apellidos+" "+telefono+" "+email;
     }
     
     public String toStringCsv(){

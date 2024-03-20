@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 import logica.LogicaCliente;
+import persistencia.entidad.Almacenable;
 import persistencia.entidad.Cliente;
 
 public class VistaCliente {
@@ -50,7 +51,7 @@ public class VistaCliente {
         System.out.println("Ingrese el email del cliente: ");
         String email = scanner.next();
 
-        /*  */
+        logicaCliente.agregarCliente(new Cliente(nombre, apellido, telefono, email));
     }
 
     private void menuActualizarCliente(){
@@ -59,7 +60,17 @@ public class VistaCliente {
     }
 
     private void menuEliminarCliente(){
-        /* Se necesita una funcion de busqueda(?) */
+        System.out.println("Ingresa el nombre del cliente: ");
+        String nombre = scanner.next();
+        System.out.println("Ingresa el apellido del cliente: ");
+        String apellidos = scanner.next();
+        
+        System.out.println("Elije el cliente a eliminar");
+        long i = 1;
+        List<Almacenable> busqueda = logicaCliente.buscarClientes(nombre, apellidos);
+        for (Almacenable cliente : busqueda) {
+            System.out.println(i+") "+cliente);
+        }
         
     }
 

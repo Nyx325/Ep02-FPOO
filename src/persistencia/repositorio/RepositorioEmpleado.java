@@ -51,17 +51,6 @@ public class RepositorioEmpleado extends Repositorio{
         return -1;
     }
 
-    public void agregar(Empleado e){
-        for(Almacenable empleado:lista){
-            if(e.equals((Empleado)empleado)){
-                System.out.println("No se pueden ingresar elementos repetidos");
-                return;
-            }
-        }
-
-        lista.add(e);
-    }
-
     private List<Empleado> buscarCompatibles(Empleado e){
         List<Empleado> compatibles = new ArrayList<>();
 
@@ -82,5 +71,4 @@ public class RepositorioEmpleado extends Repositorio{
         return compatibles;
     }
 
-    
 }

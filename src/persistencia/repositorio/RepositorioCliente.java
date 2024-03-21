@@ -43,18 +43,4 @@ public class RepositorioCliente extends Repositorio{
             this.guardar();
         }
     }
-
-    /** funcion que dado un objeto base, retorna el indice donde se encuentra el
-     * cliente dentro del repositorio, si no lo encuentra retorna -1 */
-    public long buscar(Cliente c){
-        long i = 0;
-        for(Almacenable cliente:lista){
-            Cliente c2 = (Cliente) cliente;
-            if(c.equals(c2))
-                return i;
-            i++;
-        }
-
-        return -1;
-    }
 }

@@ -18,15 +18,27 @@ public class LogicaCliente {
         return this.repoC;   
     }
 
-    public void agregarCliente(Cliente c){
+    public void agregarCliente(Cliente c) throws IOException {
         for(Almacenable cliente:repoC.getLista()){
-            if(c.equals((Cliente)cliente)){
+            Cliente c2 = (Cliente)cliente;
+            if(c.equals(c2)){
                 System.out.println("Cliente ya existente");
+                return;
+            }
+
+            if(c.getEmail().equals(c2.getEmail())){
+                System.out.println("Otro cliente ya cuenta con este email");
+                return;
+            }
+
+            if(c.getTelefono().equals(c2.getTelefono())){
+                System.out.println("Otro cliente ya cuenta con este telefono");
                 return;
             }
         }
 
         repoC.add(c);
+        repoC.guardar();
     }
 
     public long buscarCliente(Cliente c){

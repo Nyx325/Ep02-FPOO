@@ -32,7 +32,7 @@ public abstract class Repositorio{
         lista.add(registro);
     }
 
-    public void remove(long index){
+    public void remove(int index){
         lista.remove(index);
     }
 }

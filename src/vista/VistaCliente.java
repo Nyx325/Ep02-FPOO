@@ -41,7 +41,7 @@ public class VistaCliente {
         }
     }
 
-    private void menuInsertarCliente(){
+    private void menuInsertarCliente() throws IOException {
         System.out.println("Ingrese el nombre del cliente: ");
         String nombre = scanner.next();
         System.out.println("Ingrese el apellido del cliente: ");

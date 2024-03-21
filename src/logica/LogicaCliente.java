@@ -29,6 +29,18 @@ public class LogicaCliente {
         repoC.add(c);
     }
 
+    public long buscarCliente(Cliente c){
+        long i = 0;
+        for(Almacenable cliente:repoC.getLista()){
+            if(c.equals((Cliente)cliente)){
+                return i;
+            }
+            i++;
+        }
+
+        return -1;
+    }
+
     public List<Almacenable> buscarClientes(String nombre, String apellidos){
         List<Almacenable> resultBusq = new ArrayList<>();
 
@@ -44,5 +56,13 @@ public class LogicaCliente {
         }
 
         return resultBusq;
+    }
+
+    public void remove(Cliente c){
+        repoC.getLista().remove(c);
+    }
+
+    public void remove(int index){
+        repoC.getLista().remove(index);
     }
 }

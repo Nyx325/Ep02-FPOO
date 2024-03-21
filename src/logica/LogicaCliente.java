@@ -58,6 +58,19 @@ public class LogicaCliente {
         return resultBusq;
     }
 
+    public List<Almacenable> buscarClientes(String email){
+        List<Almacenable> resultBusq = new ArrayList<>();
+
+        for(Almacenable c:repoC.getLista()){
+            Cliente busqueda = (Cliente) c;
+            if(busqueda.getEmail().equals(email)){
+                resultBusq.add(c);
+            }
+        }
+
+        return resultBusq;
+    }
+
     public void remove(Cliente c){
         repoC.getLista().remove(c);
     }

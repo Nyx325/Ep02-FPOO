@@ -9,6 +9,8 @@ import logica.LogicaEmpleado;
 import persistencia.entidad.Almacenable;
 import persistencia.entidad.Empleado;
 
+// Comentarios detallados del proceso en vista y vista cliente
+
 public class VistaEmpleado extends Vista{
     public VistaEmpleado() throws IOException {
         teclado = new Scanner(System.in);

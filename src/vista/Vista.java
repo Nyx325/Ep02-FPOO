@@ -44,26 +44,41 @@ public abstract class Vista{
 
     public void eliminar() throws IOException{
         int opc;
+        // Reutilizamos la funcion busqueda y su impresión de los
+        // resultados, en caso de no encontrar sólo finalizamos
         List<Almacenable> busqueda = buscar();
 
         if(busqueda == null){
             return;
         }
 
+        // Creamos un selector que le permita salir, o seleccionar
+        // alguno de los usuarios encontrados en la lista anterior
         System.out.println("0) Cancelar");
         while(true){
             System.out.println("Ingrese el registro a eliminar: ");
             opc = teclado.nextInt();
-            if(opc<0 || opc>busqueda.size()) System.out.println("Opción no válida");
-            if(opc==0) return;
-            else break;
+            if(opc<0 || opc>busqueda.size()){
+                System.out.println("Opción no válida");
+            } 
+
+            if(opc==0){
+                return;
+            } 
+            else{
+                break;
+            } 
         }
         
+        // Tomamos el objeto que queremos eliminar y lo pasamos a 
+        // remove y solito hace to
         Almacenable c = busqueda.get(opc-1);
         logica.getRepo().getLista().remove(c);
         logica.getRepo().guardar();
     }
 
+    // Menú del crud genérico que llama a las funciones necesarias,
+    // así estas no estén implementadas aún como buscar y modificar
     public void menu() throws IOException {
         int opc;
         do {

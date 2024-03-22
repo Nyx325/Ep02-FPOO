@@ -16,6 +16,8 @@ public class VistaCliente extends Vista{
         leyendaUsuario = "cliente";
     }
 
+    // Captura los datos por consola para crear un 
+    // cliente nuevo y retorna este objeto
     @Override
     public Cliente capturarUsuario(){
         String nombre, apellidos, telefono, email;
@@ -29,10 +31,16 @@ public class VistaCliente extends Vista{
         System.out.println("Ingresa el email: ");
         email = teclado.next();
 
-
+        /* Es lo mismo que:
+         * Cliente c = new Cliente();
+         * return c;
+         */
         return new Cliente(nombre, apellidos, telefono, email);
     }
 
+    // Funcion que te permite elegir la funcion de búsqueda de 
+    // lógica queremos elegir, y captura los datos necesarios
+    // que necesita la funcion
     @Override
     public List<Almacenable> buscar(){
         int i = 0;
@@ -66,6 +74,8 @@ public class VistaCliente extends Vista{
             return null;
         }
 
+
+        // Mostramos los resultados
         i = 1;
         System.out.println("Se encontraron:");
         for(Almacenable c:resBusqueda){
@@ -73,18 +83,22 @@ public class VistaCliente extends Vista{
             i++;
         }
 
+        // Y retornamos la lista de busqueda, es una mausquerramienta
+        // misteriosa que usaremos más tarde
         return resBusqueda;
     }
 
     @Override
     public void modificar() throws IOException {
         int opc;
+        // Reutilizar la funcion de busqueda
         List<Almacenable> busqueda = buscar();
 
         if(busqueda == null){
             return;
         }
 
+        //Dar a elegir cuál de los resultados quiere
         System.out.println("0) Cancelar");
         while(true){
             System.out.println("Ingrese el cliente a modificar: ");
@@ -95,9 +109,11 @@ public class VistaCliente extends Vista{
             else break;
         }
         
+        // Tomamos la referencia al objeto que queremos modificar
         String input;
         Cliente c = (Cliente) busqueda.get(opc-1);
         
+        // Sobreescribimo
         do{
             System.out.println("\nIngresa el campo a modificar");
             System.out.println("0) Salir");
@@ -134,6 +150,7 @@ public class VistaCliente extends Vista{
                     break;
             }
         }while(opc != 0);
+        // Actualizamos el csv
         logica.getRepo().guardar();
     }
 }

@@ -13,7 +13,6 @@ public class LogicaCliente extends Logica {
         repo = new RepositorioCliente();
     }
 
-    @Override
     public List<Almacenable> buscar(String email){
         List<Almacenable> resultBusq = new ArrayList<>();
 

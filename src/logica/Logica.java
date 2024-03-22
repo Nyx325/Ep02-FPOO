@@ -37,7 +37,6 @@ public abstract class Logica{
     // En la clase abstracta de vista llamo a la funcion buscar(Stting), 
     // pero esta varía en implementacion según el tipo de vista, por lo que
     // se queda como func abstracta
-    public abstract List<Almacenable> buscar(String campo);
 
     // Funcion que valida antes de agregar directamente al repo si hay un
     // usuario exactamente igual o si reptiren email o teléfono

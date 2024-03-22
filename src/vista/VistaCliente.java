@@ -10,14 +10,13 @@ import persistencia.entidad.Almacenable;
 import persistencia.entidad.Cliente;
 
 public class VistaCliente extends Vista{
-    LogicaCliente logica;
-
     public VistaCliente() throws IOException{
         teclado = new Scanner(System.in);
         logica = new LogicaCliente();
         leyendaUsuario = "cliente";
     }
 
+    @Override
     public Cliente capturarUsuario(){
         String nombre, apellidos, telefono, email;
 
@@ -34,6 +33,7 @@ public class VistaCliente extends Vista{
         return new Cliente(nombre, apellidos, telefono, email);
     }
 
+    @Override
     public List<Almacenable> buscar(){
         int i = 0;
         String nombre, apellido, email;
@@ -70,11 +70,13 @@ public class VistaCliente extends Vista{
         System.out.println("Se encontraron:");
         for(Almacenable c:resBusqueda){
             System.out.println(i+") "+c+"\n");
+            i++;
         }
 
         return resBusqueda;
     }
 
+    @Override
     public void modificar() throws IOException {
         int opc;
         List<Almacenable> busqueda = buscar();

@@ -31,6 +31,8 @@ public abstract class Logica{
         return resultBusq;
     }
 
+    public abstract List<Almacenable> buscar(String campo);
+
     public void agregar(Cliente c) throws IOException {
         for(Almacenable cliente:repo.getLista()){
             Cliente c2 = (Cliente)cliente;

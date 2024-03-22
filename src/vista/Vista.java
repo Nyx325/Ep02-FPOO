@@ -54,7 +54,6 @@ public abstract class Vista{
         while(true){
             System.out.println("Ingrese el registro a eliminar: ");
             opc = teclado.nextInt();
-            System.out.println(busqueda.size());
             if(opc<0 || opc>busqueda.size()) System.out.println("Opción no válida");
             if(opc==0) return;
             else break;

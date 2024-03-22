@@ -62,4 +62,6 @@ public abstract class Logica{
         repo.add(c);
         repo.guardar();
     }
+    
+    public abstract List<Almacenable> buscar(String campo);
 }

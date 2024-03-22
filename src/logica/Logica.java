@@ -15,6 +15,9 @@ public abstract class Logica{
         return repo;
     }
 
+    // Definimos la busqueda por nombre porque ambos funcionan similar,
+    // además al empleado ser hijo de cliente los agrega correctamente
+    // a la búsqueda
     public List<Almacenable> buscar(String nombre, String apellidos){
         List<Almacenable> resultBusq = new ArrayList<>();
 
@@ -31,8 +34,13 @@ public abstract class Logica{
         return resultBusq;
     }
 
+    // En la clase abstracta de vista llamo a la funcion buscar(Stting), 
+    // pero esta varía en implementacion según el tipo de vista, por lo que
+    // se queda como func abstracta
     public abstract List<Almacenable> buscar(String campo);
 
+    // Funcion que valida antes de agregar directamente al repo si hay un
+    // usuario exactamente igual o si reptiren email o teléfono
     public void agregar(Cliente c) throws IOException {
         for(Almacenable cliente:repo.getLista()){
             Cliente c2 = (Cliente)cliente;

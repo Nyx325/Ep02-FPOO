@@ -37,17 +37,4 @@ public class RepositorioEmpleado extends Repositorio{
             this.guardar();
         }
     }
-
-    /** Retorna el índice en la lista de empleados en el que se encuentra
-     * el objeto buscado */
-    public long buscar(Empleado e){
-        long i = 0;
-        for(Almacenable empleado:lista){
-            if(e.equals((Empleado)empleado))
-                return i;
-            i++;
-        }
-
-        return -1;
-    }
 }

@@ -145,7 +145,7 @@ public class VistaEmpleado extends Vista{
                 case 6:
                     System.out.println("Ingresa el nuevo Cargo: ");
                     input = teclado.next();
-                    c.setEmail(input);
+                    c.setCargo(input);
                     break;
                 default:
                     break;

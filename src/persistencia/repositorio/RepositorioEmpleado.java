@@ -50,25 +50,4 @@ public class RepositorioEmpleado extends Repositorio{
 
         return -1;
     }
-
-    private List<Empleado> buscarCompatibles(Empleado e){
-        List<Empleado> compatibles = new ArrayList<>();
-
-        for(Almacenable empleado:lista){
-            Empleado e2 = (Empleado) empleado;
-            if(
-                e.getNombre().equals(e2.getNombre()) || 
-                e.getApellidos().equals(e2.getApellidos()) ||
-                e.getTelefono().equals(e2.getTelefono()) || 
-                e.getEmail().equals(e2.getEmail()) || 
-                e.getCargo().equals(e2.getCargo()) || 
-                e.getDepartamento().equals(e2.getCargo())
-              ){
-                compatibles.add(e2);
-            }
-        }
-
-        return compatibles;
-    }
-
 }

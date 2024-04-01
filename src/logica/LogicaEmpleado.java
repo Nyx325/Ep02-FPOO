@@ -18,7 +18,7 @@ public class LogicaEmpleado extends Logica{
 
         for(Almacenable e:repo.getLista()){
             Empleado busqueda = (Empleado) e;
-            if(busqueda.getDepartamento().equals(busqueda.getDepartamento())){
+            if(busqueda.getDepartamento().equals(departamento)){
                 resultBusq.add(e);
             }
         }

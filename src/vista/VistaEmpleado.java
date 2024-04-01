@@ -59,7 +59,7 @@ public class VistaEmpleado extends Vista{
                 resBusqueda = logica.buscar(nombre, apellido);
                 break;
             case 2:
-                System.out.println("Ingrese el email del empleado: ");
+                System.out.println("Ingrese el departamento del empleado: ");
                 departamento = teclado.next();
                 resBusqueda = logica.buscar(departamento);
             default:
@@ -140,7 +140,7 @@ public class VistaEmpleado extends Vista{
                 case 5:
                     System.out.println("Ingresa el nuevo departamento: ");
                     input = teclado.next();
-                    c.setEmail(input);
+                    c.setDepartamento(input);
                     break;
                 case 6:
                     System.out.println("Ingresa el nuevo Cargo: ");
